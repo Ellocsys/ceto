@@ -2,6 +2,7 @@ defmodule Pxblog.PostController do
   use Pxblog.Web, :controller
 
   plug :assign_user
+  plug :authorize_user when action in [:new, :create, :update, :edit, :delete]
 
   alias Pxblog.Post
 
@@ -21,6 +22,18 @@ defmodule Pxblog.PostController do
     |> put_flash(:error, "Invalid user!")
     |> redirect(to: page_path(conn, :index))
     |> halt
+  end
+
+  defp authorize_user(conn, _opts) do
+    user = get_session(conn, :current_user)
+    if user && Integer.to_string(user.id) == conn.params["user_id"] do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You have no power here!")
+      |> redirect(to: page_path(conn, :index))
+      |> halt()
+    end
   end
 
   def index(conn, _params) do

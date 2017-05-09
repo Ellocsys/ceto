@@ -30,7 +30,7 @@ defmodule Pxblog.SessionController do
 		dummy_checkpw()
 		conn
 		|>put_session(:current_user, nil)
-		|>put_flash(:error, "Wrong password or username!")
+		|>put_flash(:error, "Invalid username/password combination!")
 		|>redirect(to: page_path(conn, :index))
 		|>halt()
 	end
