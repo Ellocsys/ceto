@@ -1,4 +1,8 @@
-# Pxblog
+# Ceto
+
+in Nonnus's Dionysiaca, Ceto /ˈsiːtoʊ/ is called a "Naiad daughter of Oceanos" and thus one of the Oceanids. She bore Helios a daughter, Astris.
+
+It blog writen by tutorial Brandon Richey's https://hackernoon.com/introduction-fe138ac6079d
 
 To start your Phoenix app:
 
